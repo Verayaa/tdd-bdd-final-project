@@ -136,3 +136,43 @@ class TestProductModel(unittest.TestCase):
         self.assertEqual(len(products), 1)
         self.assertEqual(products[0].id, original_id)
         self.assertEqual(products[0].description, "testing")
+
+    #Test Case to Delete a Product
+    def test_delete_a_product(self):
+        product = ProductFactory()
+        product.create()
+        self.assertEqual(len(Product.all()),1)
+        # delete the product and make sure it isn't in the database
+        product.delete()
+        self.assertEqual(len(Product.all()),0)
+
+    #Test Case to List all Products
+    def test_list_all_products(self):
+        """It should List all Products in the database"""
+        products = Product.all()
+        self.assertEqual(products, [])
+        #Create 5 products
+        for _ in range(5)
+            product = ProductFactory()
+            product.create()
+        # See if we get back 5 products
+        products = Product.all()
+        self.assertEqual(len(products), 5)
+
+    #Test Case to Find a Product by Name
+    def test_find_by_name(self):
+        products = ProductFactory.create_batch(5)
+        for product in products:
+            product.create()
+        name = products[0].name
+        count = len([product for product in products if product.name == name]
+        found = Product.find_by_name(name)
+        self.assertEqual(found.count(), count)
+        for product in found :
+            self.assertEqual(product.name, name)
+
+     #Test Case to Find a Product by Availability
+
+        
+        
+            
