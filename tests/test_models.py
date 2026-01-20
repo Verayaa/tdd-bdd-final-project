@@ -146,13 +146,13 @@ class TestProductModel(unittest.TestCase):
         product.delete()
         self.assertEqual(len(Product.all()),0)
 
-    #Test Case to List all Products
+       #Test Case to List all Products
     def test_list_all_products(self):
         """It should List all Products in the database"""
         products = Product.all()
         self.assertEqual(products, [])
         #Create 5 products
-        for _ in range(5)
+        for _ in range(5):
             product = ProductFactory()
             product.create()
         # See if we get back 5 products
@@ -165,35 +165,35 @@ class TestProductModel(unittest.TestCase):
         for product in products:
             product.create()
         name = products[0].name
-        count = len([product for product in products if product.name == name]
+        count = len([product for product in products if product.name == name])
         found = Product.find_by_name(name)
         self.assertEqual(found.count(), count)
         for product in found :
             self.assertEqual(product.name, name)
 
      #Test Case to Find a Product by Availability
-     def test_find_by_availablity(self):
-         products = ProductFactory.create_batch(10)
-         for product in products :
-             product.create()
-         available = products[0].available
-         count = len([product for product in products if product.available == available])
-         found = Product.find_by_availability(available)
-         self.assertEqual(found.count(), count)
-         for product in found:
-             self.assertEqual(product.available, available)
+    def test_find_by_availablity(self):
+        products = ProductFactory.create_batch(10)
+        for product in products :
+            product.create()
+        available = products[0].available
+        count = len([product for product in products if product.available == available])
+        found = Product.find_by_availability(available)
+        self.assertEqual(found.count(), count)
+        for product in found:
+            self.assertEqual(product.available, available)
 
       #Test Case to Find a Product by Category
-      def test_find_by_category(self):
-         products = ProductFactory.create_batch(10)
-         for product in products :
-             product.create()
-         category = products[0].category
-         count = len([product for product in products if product.category == category])
-         found = Product.find_by_category(category)
-         self.assertEqual(found.count(), count)
-         for product in found:
-             self.assertEqual(product.category, category) 
+    def test_find_by_category(self):
+        products = ProductFactory.create_batch(10)
+        for product in products :
+            product.create()
+        category = products[0].category
+        count = len([product for product in products if product.category == category])
+        found = Product.find_by_category(category)
+        self.assertEqual(found.count(), count)
+        for product in found:
+            self.assertEqual(product.category, category)  
         
         
             
