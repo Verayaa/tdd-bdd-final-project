@@ -208,7 +208,7 @@ class TestProductRoutes(TestCase):
         updated_product = response.get_json()
         self.assertEqual(updated_product["description"], "unknown")
 
-def test_delete_product(self):
+    def test_delete_product(self):
         """It should Delete a Product"""
         # create a list products containing 5 products using the _create_products() method. 
         products = self._create_products(5)
