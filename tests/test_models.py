@@ -117,7 +117,7 @@ class TestProductModel(unittest.TestCase):
         self.assertEqual(found_product.description, product.description)
         self.assertEqual(found_product.price, product.price)
 
-　　　#Test Case to　Update a Product
+    #Test Case to　Update a Product
     def test_update_a_product(self):
         """It should Update a Product"""
         product = ProductFactory()
@@ -126,7 +126,7 @@ class TestProductModel(unittest.TestCase):
         self.assertIsNotNone(product.id)
         # Change it and save it
         product.description = "testing"
-　　　　 original_id = product.id
+        original_id = product.id
         product.update()
         self.assertEqual(product.id, original_id)
         self.assertEqual(product.description, "testing")
