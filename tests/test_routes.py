@@ -184,7 +184,7 @@ class TestProductRoutes(TestCase):
         # get the id of a product
         test_product = self._create_products(1)[0]
         # make a self.client.get request to the API endpoint and store the result in the variable named response
-        response = self.client.get(f"{BASE_URL}/{test_product.id}"))
+        response = self.client.get(f"{BASE_URL}/{test_product.id}")
         # assert that the resp.status_code is status.HTTP_200_OK
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         # get the data from resp.get_json()
